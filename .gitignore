@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+#wttd
+.wttd
+
+#pycharm
+.idea
+
