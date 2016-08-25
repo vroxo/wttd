@@ -1,6 +1,9 @@
-#wttd
-.wttd
-
-#pycharm
+.DS_Store
+.env
 .idea
+.wttd
+*.sqlite3
+*pyc
+__pycache__
+
 
