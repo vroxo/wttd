@@ -1,1 +1,1 @@
-# Curso Welcom to the Django!
+# Curso Welcome to the Django!
