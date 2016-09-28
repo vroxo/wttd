@@ -2,6 +2,10 @@
 
 Sistema de Eventos encomendado pela morena
 
+[![Code Health](https://landscape.io/github/vroxo/wttd/master/landscape.svg?style=flat)](https://landscape.io/github/vroxo/wttd/master)
+
+[![Build Status](https://travis-ci.org/vroxo/wttd.svg?branch=master)](https://travis-ci.org/vroxo/wttd)
+
 ## Como desenvolver?
 
 1. Clone o repositório.
