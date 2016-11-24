@@ -27,3 +27,4 @@ class SubscriptionModelTest(TestCase):
 
     def test_paid_defaul(self):
         self.assertEqual(False, self.obj.paid)
+
