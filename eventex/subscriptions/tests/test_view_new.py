@@ -9,8 +9,7 @@ from eventex.subscriptions.models import Subscription
 class SubscriptionsNewGet(TestCase):
 
     def setUp(self):
-        self.resp = self.client.get('/inscricao/')
-        self.form = self.resp.context['form']
+        self.resp = self.client.get(r('subscriptions:new'))
 
     def test_get(self):
         """GET/inscricao/ must return status code 200"""
@@ -18,7 +17,7 @@ class SubscriptionsNewGet(TestCase):
 
     def test_template(self):
         """Must use subscriptions/subscription_form.html"""
-        self.assertTemplateUsed(self.resp,'subscriptions/subscription_form.html')
+        self.assertTemplateUsed(self.resp, 'subscriptions/subscription_form.html')
 
     def test_html(self):
         """Html must contains input tags"""
@@ -39,7 +38,8 @@ class SubscriptionsNewGet(TestCase):
         self.assertContains(self.resp, 'csrfmiddlewaretoken')
 
     def test_has_form(self):
-        self.assertIsInstance(self.form, SubscriptionForm)
+        form = self.resp.context['form']
+        self.assertIsInstance(form, SubscriptionForm)
 
 
 class SubscriptionsNewPostValid(TestCase):
@@ -76,3 +76,12 @@ class SubscriptionsNewPostInvalid(TestCase):
 
     def test_dont_save_subscription(self):
         self.assertFalse(Subscription.objects.exists())
+
+
+class TemplateRegressionTest(TestCase):
+    def test_template_non_field_errors(self):
+        invalid_data = dict(name='Vitor Roxo', cpf='13830124740')
+        response = self.client.post(r('subscriptions:new'), invalid_data)
+
+        self.assertContains(response, '<ul class="errorlist nonfield">')
+
