@@ -1,6 +1,4 @@
 # coding=utf-8
-from typing import re
-
 from django import forms
 from django.core.exceptions import ValidationError
 
